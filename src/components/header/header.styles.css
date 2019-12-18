@@ -1,0 +1,13 @@
+.jumbo {
+    /* background-image: url('../../assets/Guidedog-Logo.png'); */
+    height: 100px;
+    position: relative;
+    z-index: -2;
+}
+
+.jumbo :hover {
+    opacity: 0.6;
+}
+
+
+

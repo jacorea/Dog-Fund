@@ -48,12 +48,13 @@ export class Address extends Component {
     }
         
     render() {
-        console.log(this.state.homeAddress)
         let { firstName, lastName, address1, address2, city, state, zip, country } = this.state.homeAddress;
         let { states } = this.state;
         return (
             <div>
                 <Form>
+                    <h3>{this.props.title}</h3>
+                    <hr />
                     <Row>
                         <Col>
                         <FormGroup  controlId="formGridFirstName">

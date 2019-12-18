@@ -62,9 +62,8 @@ export class App extends Component {
                 value={donation}
               />
           </FormGroup>
-          <hr />
-          <Address />
-          <hr />
+          <Address title="Contact Info" />
+          <Address title="Billing Address" />
         </div>
       </div>
     );
