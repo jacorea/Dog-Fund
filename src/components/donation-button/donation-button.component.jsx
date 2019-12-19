@@ -5,8 +5,6 @@ import donationAmount from '../../utils/donationAmounts.data';
 import { Row, Col } from 'react-bootstrap'
 
 const DonationButton=(donate,donation)=>{
-
-    
     return (
         <div>
             <Row>

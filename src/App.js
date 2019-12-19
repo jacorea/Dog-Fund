@@ -3,6 +3,7 @@ import './App.css';
 import DonationButton from './components/donation-button/donation-button.component';
 import Header from './components/header/header.component.jsx';
 import Address from './components/address/Address.component';
+import DonationAmountForm from './components/donation-amount-form/donation-amount-form.component'
 
 import { FormGroup, FormLabel, FormControl} from 'react-bootstrap';
 
@@ -47,21 +48,8 @@ export class App extends Component {
         <div className="section">
           <Header />
         </div>
+        <DonationAmountForm title="Donation Amount" donation={donation} handleDonation={()=> this.handleChange} />
         <div className="container">
-          <h3>Donation Amount</h3>
-          <hr />
-          <DonationButton donate={this.handleDonation} donation={donation} />
-        </div>
-        <div className="container">
-          <FormGroup>
-            <FormLabel>OTHER AMOUNT</FormLabel>
-              <FormControl 
-                type='number'
-                name="donation"
-                onChange={this.handleChange}
-                value={donation}
-              />
-          </FormGroup>
           <Address title="Contact Info" />
           <Address title="Billing Address" />
         </div>

@@ -23,9 +23,6 @@ export class Address extends Component {
         }
     }
 
-
-
-
     componentDidMount = () => {
         let {state} = this.state
         this.createArrayOfStates(states)
