@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 
-import {FormGroup, FormLabel, FormControl } from 'react-bootstrap';
+import {FormGroup, FormLabel, FormControl, Row, Col } from 'react-bootstrap';
 
 import DonationButton from '../donation-button/donation-button.component';
 
 export class DonationAmountForm extends Component {
   render() {
-    console.log(this.props);
   return (
       <div>
         <div className="container">
@@ -15,18 +14,26 @@ export class DonationAmountForm extends Component {
               <hr />
           </div>
           <div>
-            <DonationButton />
+            <Row>
+              <Col>
+                <DonationButton />
+              </Col>
+            </Row>
           </div>
           <div>
-            <FormGroup>
-              <FormLabel>OTHER AMOUNT</FormLabel>
-                <FormControl 
-                  type='number'
-                  name="donation"
-                  onChange={this.props.handleDonation()}
-                  value={this.props.donation}
-                />
-            </FormGroup>
+            <Row>
+              <Col md={4} lg={4}>
+                <FormGroup>
+                  <FormLabel>OTHER AMOUNT</FormLabel>
+                    <FormControl 
+                      type='number'
+                      name="donation"
+                      onChange={this.props.handleDonation()}
+                      value={this.props.donation}
+                    />
+                </FormGroup>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>
