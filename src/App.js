@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import DonationButton from './components/donation-button/donation-button.component';
 import Header from './components/header/header.component.jsx';
 import Address from './components/address/Address.component';
 import DonationAmountForm from './components/donation-amount-form/donation-amount-form.component'
 
-import { FormGroup, FormLabel, FormControl} from 'react-bootstrap';
 
 export class App extends Component {
   constructor(props) {
@@ -50,8 +48,8 @@ export class App extends Component {
         </div>
         <DonationAmountForm title="Donation Amount" donation={donation} handleDonation={()=> this.handleChange} />
         <div className="container">
-          <Address title="Contact Info" />
-          <Address title="Billing Address" />
+          <Address title="Contact Info" formTitle="homeAddress"/>
+          <Address title="Billing Address" formTitle="billingAddress" />
         </div>
       </div>
     );

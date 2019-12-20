@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { FormGroup, Form, FormLabel,FormControl, Row, Col, } from 'react-bootstrap';
+import { FormGroup, Form, FormLabel,FormControl, Row, Col, FormCheck } from 'react-bootstrap';
 
 import states from '../../utils/state.data';
 
@@ -10,6 +10,7 @@ export class Address extends Component {
 
         this.state = { 
                 states: [],
+                sameBillingInfo: false,
                 homeAddress: {
                 firstName: '',
                 lastName: '',
@@ -19,7 +20,7 @@ export class Address extends Component {
                 state: '',
                 zip: '',
                 country: ''
-            }
+            },
         }
     }
 
@@ -39,19 +40,46 @@ export class Address extends Component {
     }
 
     handleChange = (event) => {
-        const { homeAddress } = this.state;
+        let { homeAddress } = this.state;
         homeAddress[event.target.name] = event.target.value
         this.setState({homeAddress: homeAddress })
     }
+
+    handleInputChange = (event) => {
+        let { sameBillingInfo } = this.state;
+        sameBillingInfo = event.target.checked
+
+        this.setState({sameBillingInfo})
+    }
         
     render() {
-        let { firstName, lastName, address1, address2, city, state, zip, country } = this.state.homeAddress;
+        let { firstName, lastName, address1, address2, city, zip, country,sameBillingInfo } = this.state.homeAddress;
         let { states } = this.state;
+        let { formTitle } = this.props;
+        
         return (
             <div>
                 <Form>
                     <h3>{this.props.title}</h3>
                     <hr />
+                    { formTitle === 'billingAddress' ? 
+                        <React.Fragment>
+                            <Row>
+                                <Col>
+                                    <FormGroup controlId="formBasicCheckbox" className="container">
+                                            <FormCheck.Input 
+                                            type="checkbox" 
+                                            name="sameBillingInfo" 
+                                            checked={sameBillingInfo} 
+                                            label="same as Contact Info"
+                                            onChange={this.handleInputChange}
+                                        /> 
+                                        <FormCheck.Label>Same as Contact Info</FormCheck.Label>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                        </React.Fragment> : <React.Fragment></React.Fragment>
+                    }
                     <Row>
                         <Col>
                         <FormGroup  controlId="formGridFirstName">
