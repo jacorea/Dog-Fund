@@ -10,7 +10,7 @@ const DonationButton=(donate,donation)=>{
             <Row>
                 {donationAmount.map((donation,index)=> {
                     return (
-                        <div>
+                        <div key={index}>
                             <Col>
                                 <Button key={index} onClick={()=> this.donate()}>${donation}</Button>
                             </Col>

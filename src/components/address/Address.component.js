@@ -53,10 +53,10 @@ export class Address extends Component {
     }
         
     render() {
-        let { firstName, lastName, address1, address2, city, zip, country,sameBillingInfo } = this.state.homeAddress;
-        let { states } = this.state;
+        let { firstName, lastName, address1, address2, city, zip, country} = this.state.homeAddress;
+        let { states,sameBillingInfo } = this.state;
         let { formTitle } = this.props;
-        
+
         return (
             <div>
                 <Form>
@@ -80,96 +80,102 @@ export class Address extends Component {
                             </Row>
                         </React.Fragment> : <React.Fragment></React.Fragment>
                     }
-                    <Row>
-                        <Col>
-                        <FormGroup  controlId="formGridFirstName">
-                            <FormLabel>First Name</FormLabel>
-                            <FormControl 
-                                type="text"
-                                name="firstName"
-                                onChange={this.handleChange}
-                                value={firstName}
-                            />
-                        </FormGroup>
-                        </Col>
-                        <Col>
-                        <FormGroup controlId="formGridLastName">
-                            <FormLabel>Last Name</FormLabel>
-                            <FormControl 
-                                type="text"
-                                name="lastName"
-                                onChange={this.handleChange}
-                                value={lastName}
-                            />
-                        </FormGroup>
-                        </Col>
-                    </Row>
-                    <FormGroup controlId="Address1">
-                        <FormLabel>Address 1</FormLabel>
-                        <FormControl 
-                            type='text'
-                            name="address1"
-                            onChange={this.handleChange}
-                            value={address1}
-                        />
-                    </FormGroup>
-
-                    <FormGroup controlId="Address2">
-                        <FormLabel>Address 2 (optional)</FormLabel>
-                        <FormControl 
-                            type='text'
-                            name="address2"
-                            onChange={this.handleChange}
-                            value={address2}
-                        />
-                    </FormGroup>
-
-                    <FormGroup controlId="Country">
-                    <FormLabel>Country</FormLabel>
-                        <FormControl 
-                            type='text'
-                            name="country"
-                            onChange={this.handleChange}
-                            value={country}
-                        />
-                    </FormGroup>
-
-                    <Form.Row>                    
-                            <FormGroup as={Col} controlId="City">
-                                <FormLabel>City</FormLabel>
+                    {sameBillingInfo === false && this.props.formTitle === "billingAddress" || this.props.formTitle === 'homeAddress' ? 
+                        <React.Fragment>
+                            <Row>
+                                <Col>
+                                <FormGroup  controlId="formGridFirstName">
+                                    <FormLabel>First Name</FormLabel>
+                                    <FormControl 
+                                        type="text"
+                                        name="firstName"
+                                        onChange={this.handleChange}
+                                        value={firstName}
+                                    />
+                                </FormGroup>
+                                </Col>
+                                <Col>
+                                <FormGroup controlId="formGridLastName">
+                                    <FormLabel>Last Name</FormLabel>
+                                    <FormControl 
+                                        type="text"
+                                        name="lastName"
+                                        onChange={this.handleChange}
+                                        value={lastName}
+                                    />
+                                </FormGroup>
+                                </Col>
+                            </Row>
+                            <FormGroup controlId="Address1">
+                                <FormLabel>Address 1</FormLabel>
                                 <FormControl 
                                     type='text'
-                                    name="city"
+                                    name="address1"
                                     onChange={this.handleChange}
-                                    value={city}
+                                    value={address1}
                                 />
-                            </FormGroup>
-            
-                            <FormGroup as={Col} controlId="States">
-                            <FormLabel>State</FormLabel>
-                                <FormControl
-                                    as="select" 
-                                    type='text'
-                                    name="state"
-                                    onChange={this.handleChange}
-                                >
-                                {states.map((state,id)=> {
-                                    return (<option key={id} value={state}>{state}</option>
-                                    )                                    
-                                })}
-                                </FormControl>
                             </FormGroup>
 
-                            <FormGroup as={Col} controlId="Zip">
-                            <FormLabel>Zip</FormLabel>
+                            <FormGroup controlId="Address2">
+                                <FormLabel>Address 2 (optional)</FormLabel>
                                 <FormControl 
                                     type='text'
-                                    name="zip"
+                                    name="address2"
                                     onChange={this.handleChange}
-                                    value={zip}
+                                    value={address2}
                                 />
                             </FormGroup>
-                    </Form.Row>
+
+                            <FormGroup controlId="Country">
+                            <FormLabel>Country</FormLabel>
+                                <FormControl 
+                                    type='text'
+                                    name="country"
+                                    onChange={this.handleChange}
+                                    value={country}
+                                />
+                            </FormGroup>
+
+                            <Form.Row>                    
+                                    <FormGroup as={Col} controlId="City">
+                                        <FormLabel>City</FormLabel>
+                                        <FormControl 
+                                            type='text'
+                                            name="city"
+                                            onChange={this.handleChange}
+                                            value={city}
+                                        />
+                                    </FormGroup>
+                    
+                                    <FormGroup as={Col} controlId="States">
+                                    <FormLabel>State</FormLabel>
+                                        <FormControl
+                                            as="select" 
+                                            type='text'
+                                            name="state"
+                                            onChange={this.handleChange}
+                                        >
+                                        {states.map((state,id)=> {
+                                            return (<option key={id} value={state}>{state}</option>
+                                            )                                    
+                                        })}
+                                        </FormControl>
+                                    </FormGroup>
+
+                                    <FormGroup as={Col} controlId="Zip">
+                                    <FormLabel>Zip</FormLabel>
+                                        <FormControl 
+                                            type='text'
+                                            name="zip"
+                                            onChange={this.handleChange}
+                                            value={zip}
+                                        />
+                                    </FormGroup>
+                            </Form.Row>
+                        </React.Fragment>
+                        : 
+                        <React.Fragment></React.Fragment>
+                    }
                 </Form>
             </div>
         )
