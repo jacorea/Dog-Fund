@@ -80,7 +80,7 @@ export class Address extends Component {
                             </Row>
                         </React.Fragment> : <React.Fragment></React.Fragment>
                     }
-                    {sameBillingInfo === false && this.props.formTitle === "billingAddress" || this.props.formTitle === 'homeAddress' ? 
+                    {(sameBillingInfo === false && this.props.formTitle === "billingAddress") || this.props.formTitle === 'homeAddress' ? 
                         <React.Fragment>
                             <Row>
                                 <Col>

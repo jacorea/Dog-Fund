@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header/header.component.jsx';
 import Address from './components/address/Address.component';
 import DonationAmountForm from './components/donation-amount-form/donation-amount-form.component'
+import StripeCheckoutButton from './components/stripe-button/stripe-checkout-button.component';
 
 
 export class App extends Component {
@@ -50,6 +51,9 @@ export class App extends Component {
         <div className="container">
           <Address title="Contact Info" formTitle="homeAddress"/>
           <Address title="Billing Address" formTitle="billingAddress" />
+        </div>
+        <div className="container">
+          <StripeCheckoutButton price={2} />
         </div>
       </div>
     );
